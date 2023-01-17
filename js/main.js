@@ -27,19 +27,34 @@ const productos = [
     img: "macbook-pro.jpg",
   },
 ];
-const paises = [
-  "Argentina",
-  "Colombia",
-  "Brasil",
-  "México",
-  "Uruguay",
-  "Venezuela",
-  "Perú",
-  "Chile",
-  "Polonia",
-  "Francia",
-  "Australia",
-];
+
+let cotizacionActual = 1;
+
+const paises = {
+    "Estados Unidos": 1,
+    Argentina: 350,
+    Colombia: 4721,
+    Brasil: 5,
+    México: 18,
+    Uruguay: 40,
+    Venezuela: 248567, 
+    Perú: 4,
+    Chile: 815,
+}
+
+// const paises = [
+//   "Argentina",
+//   "Colombia",
+//   "Brasil",
+//   "México",
+//   "Uruguay",
+//   "Venezuela",
+//   "Perú",
+//   "Chile",
+//   "Polonia",
+//   "Francia",
+//   "Australia",
+// ];
 
 //funciones de busqueda
 function buscarProducto(arr, filtro) {
@@ -90,20 +105,29 @@ input[0].addEventListener("input", () => {
   crearHtml(encontrado);
 });
 
-let select = document.querySelector('select[name="paises"]');
+let selectPaisElement = document.querySelector('#selectPais');
 
-paises.forEach((pais) => {
+
+Object.keys(paises).forEach((pais) => {
   let option = document.createElement("option");
   option.value = pais;
   option.innerText = pais;
 
-  select.appendChild(option);
+  selectPaisElement.appendChild(option);
 });
 
-select.addEventListener("change", () => {
-  let opcion = select.options[select.selectedIndex].value;
-  console.log(opcion);
-  document.querySelector("#info").innerText = `País seleccionado: ${opcion}. Cotización en su moneda: `;
+selectPaisElement.addEventListener("change", () => {
+  let opcion = selectPaisElement.options[selectPaisElement.selectedIndex].value;
+  const encontrado = buscarProducto(productos, input[0].value);
+  console.log(encontrado);
+
+  console.log(encontrado.precio);
+
+ cotizacionActual = paises[opcion] * encontrado.precio;
+
+  document.querySelector("#info").innerText = `País seleccionado: ${opcion}. Cotización en su moneda: ${cotizacionActual}`;
 });
+
+
 
 
