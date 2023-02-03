@@ -1,0 +1,56 @@
+[
+    {
+       "id":1,
+       "nombre":"Apple Watch",
+       "precio":500,
+       "img":"apple-watch.jpg"
+    },
+    {
+       "id":2,
+       "nombre":"Airpods",
+       "precio":160,
+       "img":"airpods.webp"
+    },
+    {
+       "id":3,
+       "nombre":"Airpods Max",
+       "precio":240,
+       "img":"airpods-max.webp"
+    },
+    {
+       "id":4,
+       "nombre":"Iphone XR",
+       "precio":700,
+       "img":"iphone-xr.webp"
+    },
+    {
+       "id":5,
+       "nombre":"Iphone 11",
+       "precio":870,
+       "img":"iphone-11.webp"
+    },
+    {
+       "id":6,
+       "nombre":"Iphone 12",
+       "precio":990,
+       "img":"iphone-12.jpg"
+    },
+    {
+       "id":7,
+       "nombre":"Iphone 13",
+       "precio":1130,
+       "img":"iphone-13.jpeg"
+    },
+    {
+       "id":8,
+       "nombre":"Macbook",
+       "precio":1300,
+       "img":"macbook.jpeg"
+    },
+    {
+       "id":9,
+       "nombre":"Macbook Pro",
+       "precio":1550,
+       "img":"macbook-pro.jpg"
+    }
+ ]

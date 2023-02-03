@@ -42,19 +42,6 @@ const paises = {
     Chile: 815,
 }
 
-// const paises = [
-//   "Argentina",
-//   "Colombia",
-//   "Brasil",
-//   "México",
-//   "Uruguay",
-//   "Venezuela",
-//   "Perú",
-//   "Chile",
-//   "Polonia",
-//   "Francia",
-//   "Australia",
-// ];
 
 //funciones de busqueda
 function buscarProducto(arr, filtro) {
@@ -81,7 +68,6 @@ function crearHtml(el) {
                 <h3>${el.nombre}</h3>
                 <p>Precio: $${el.precio} USD </p>
                   <div class="card-action">
-                    <button id="${el.id}">Comprar</button>
                   </div>
               </div>`;
 
@@ -127,6 +113,38 @@ selectPaisElement.addEventListener("change", () => {
 
   document.querySelector("#info").innerText = `País seleccionado: ${opcion}. Cotización en su moneda: ${cotizacionActual}`;
 });
+
+const btnSwal = document.getElementById("botonSwal");
+
+btnSwal.addEventListener("click", () => {
+  //codigo a ejecutar
+  Swal.fire({
+    title: '¿Estás seguro de esta compra?',
+    text: "¡No podrás modificarla luego!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    cancelButtonText: 'Cancelar.',
+    confirmButtonText: 'Si, estoy seguro!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire(
+        'Perfecto.',
+        '¡Su producto fue agregado al carrito!',
+        'success'
+      )
+    }
+  })
+})
+
+fetch('./data/data.json').then((response)=> response.json()).then((data)=> {console.log(data);});
+
+
+
+
+
+
 
 
 
